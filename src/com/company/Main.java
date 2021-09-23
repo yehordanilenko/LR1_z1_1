@@ -9,24 +9,24 @@ public class Main {
         //task2();
     }
 
-    public static void task1(){
+    public static void task1() {
         /*Вариант 9
 * Определить средний возраст футболистов и вывести
 сведения о футболистах, возраст которых меньше 25
 лет.*/
-        int sum=0;
+        int sum = 0;
         int amountfootb;
         Scanner in = new Scanner(System.in);
         do {
             System.out.println("Input amount footballers:");
             amountfootb = in.nextInt();
             in.nextLine();
-        }while(amountfootb<=0);
-        Footballer[] array1=new Footballer[amountfootb];
+        } while (amountfootb <= 0);
+        Footballer[] array1 = new Footballer[amountfootb];
         for (int i = 0; i < amountfootb; i++) {
-            array1[i]=new Footballer();
+            array1[i] = new Footballer();
             System.out.println("Input Surname:");
-            array1[i].surname=in.nextLine();
+            array1[i].surname = in.nextLine();
             System.out.println("Input Yearsold:");
             array1[i].SetYearsold(in.nextByte());
             System.out.println("Input numbergames:");
@@ -34,12 +34,12 @@ public class Main {
             System.out.println("Input numbergoals:");
             array1[i].SetNumbergoals(in.nextShort());
             in.nextLine();//делаем эту команду чтобы строка после ввода числа шорт не брало пробел после него
-            sum+=array1[i].yearsold;//считает сумму всех возрастов футболистов
+            sum += array1[i].yearsold;//считает сумму всех возрастов футболистов
         }
-        double avarage_years=(sum/amountfootb);//считает средний возраст футболистов
+        double avarage_years = (sum / amountfootb);//считает средний возраст футболистов
         System.out.println("Avarage age: " + avarage_years);
         for (int i = 0; i < amountfootb; i++) {
-            if(array1[i].yearsold<25){
+            if (array1[i].yearsold < 25) {
                 System.out.println("Surname: " + array1[i].surname);
                 System.out.println("Yearsold: " + array1[i].yearsold);
                 System.out.println("Numbergames: " + array1[i].numbergames);
@@ -47,28 +47,29 @@ public class Main {
             }
         }
     }
-    public static void task2(){
+
+    public static void task2() {
 
         /*Вариант 9
         Вывести данные об авиарейсе с максимальной скоростью.*/
-        Scanner scanner= new Scanner(System.in);
-        double max_speed=0;
+        Scanner scanner = new Scanner(System.in);
+        double max_speed = 0;
         int amountflights;
         do {
             System.out.println("Input amount amountflights:");
             amountflights = scanner.nextInt();
             scanner.nextLine();
-        }while(amountflights<=0);
-        Schedule[] array2=new Schedule[amountflights];
-        double[] arraySPEED=new double[amountflights];
-        double[]arrayTIMES=new double[amountflights];
+        } while (amountflights <= 0);
+        Schedule[] array2 = new Schedule[amountflights];
+        double[] arraySPEED = new double[amountflights];
+        double[] arrayTIMES = new double[amountflights];
         for (int i = 0; i < amountflights; i++) {
-            array2[i]=new Schedule();
+            array2[i] = new Schedule();
             System.out.println("Input number flight: ");
-            array2[i].number_flight= scanner.nextLine();
+            array2[i].number_flight = scanner.nextLine();
 
             System.out.println("Input time departure( hh:mm:ss ):");
-            array2[i].time_departue= scanner.next();
+            array2[i].time_departue = scanner.next();
             LocalTime timed = LocalTime.parse(array2[i].time_departue);//Переводим строку в переменную времени
             double seconds_DEPARTURE = timed.toSecondOfDay();
             System.out.println("Input time arrival( hh:mm:ss ):");
@@ -77,33 +78,31 @@ public class Main {
             double secondsArrival = timea.toSecondOfDay();
             scanner.nextLine();
             System.out.println("Input direction: ");
-            array2[i].direction= scanner.nextLine();
+            array2[i].direction = scanner.nextLine();
 
             System.out.println("Input mark plane: ");
-            array2[i].mark_plane= scanner.nextLine();
+            array2[i].mark_plane = scanner.nextLine();
 
             System.out.println("Input distance(km): ");
             array2[i].Setinputdistance(scanner.nextDouble());
             scanner.nextLine();
-            if((secondsArrival-seconds_DEPARTURE)<0){
-                arrayTIMES[i] = seconds_DEPARTURE-secondsArrival;
-            }
-            else{
-                arrayTIMES[i]=secondsArrival - seconds_DEPARTURE;
+            if ((secondsArrival - seconds_DEPARTURE) < 0) {
+                arrayTIMES[i] = seconds_DEPARTURE - secondsArrival;
+            } else {
+                arrayTIMES[i] = secondsArrival - seconds_DEPARTURE;
             }
 
-            arraySPEED[i]= (array2[i].distance/arrayTIMES[i]);
+            arraySPEED[i] = (array2[i].distance / arrayTIMES[i]);
 
         }
-        int number=0;
-        for (int i = 0; i < amountflights-1; i++) {
-            if(arraySPEED[i]>arraySPEED[i+1]){
-                max_speed=arraySPEED[i];
+        int number = 0;
+        for (int i = 0; i < amountflights - 1; i++) {
+            if (arraySPEED[i] > arraySPEED[i + 1]) {
+                max_speed = arraySPEED[i];
                 number = i;
-            }
-            else{
-                max_speed=arraySPEED[i+1];
-                number=i+1;
+            } else {
+                max_speed = arraySPEED[i + 1];
+                number = i + 1;
             }
 
         }
