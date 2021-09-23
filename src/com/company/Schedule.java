@@ -3,7 +3,7 @@ package com.company;
 import java.time.LocalTime;
 import java.util.Scanner;
 
-public class Time {
+public class Schedule {
     Scanner scanner= new Scanner(System.in);
     String number_flight;
     String time_departue;

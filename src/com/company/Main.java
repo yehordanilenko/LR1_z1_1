@@ -59,11 +59,11 @@ public class Main {
             amountflights = scanner.nextInt();
             scanner.nextLine();
         }while(amountflights<=0);
-        Time[] array2=new Time[amountflights];
+        Schedule[] array2=new Schedule[amountflights];
         double[] arraySPEED=new double[amountflights];
         double[]arrayTIMES=new double[amountflights];
         for (int i = 0; i < amountflights; i++) {
-            array2[i]=new Time();
+            array2[i]=new Schedule();
             System.out.println("Input number flight: ");
             array2[i].number_flight= scanner.nextLine();
 
