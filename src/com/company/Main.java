@@ -1,7 +1,5 @@
 package com.company;
 
-import java.awt.geom.Arc2D;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalTime;
 import java.util.Scanner;
 
@@ -24,9 +22,9 @@ public class Main {
             amountfootb = in.nextInt();
             in.nextLine();
         }while(amountfootb<=0);
-        footb[] array1=new footb[amountfootb];
+        Footballer[] array1=new Footballer[amountfootb];
         for (int i = 0; i < amountfootb; i++) {
-            array1[i]=new footb();
+            array1[i]=new Footballer();
             System.out.println("Input Surname:");
             array1[i].surname=in.nextLine();
             System.out.println("Input Yearsold:");
